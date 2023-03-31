@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace FirstBankOfSuncoast
 {
@@ -39,6 +40,35 @@ namespace FirstBankOfSuncoast
         static void Main(string[] args)
         {
             var keepGoing = true;
+
+            var transactions = new List<Transaction>();
+
+            var tenDollarSavingsDeposit = new Transaction()
+           {
+            Amount = 10,
+            Account = "Savings",
+            Type = "Deposit"
+           };
+           transactions.Add(tenDollarSavingsDeposit);
+
+           var eightDollarSavingsWithdraw = new Transaction()
+           {
+            Amount = 8,
+            Account = "Savings",
+            Type = "Withdraw"
+           };
+           transactions.Add(eightDollarSavingsWithdraw);
+
+           var twentyFiveDollarCheckingDeposit = new Transaction()
+           {
+            Amount = 25,
+            Account = "Checking",
+            Type = "Deposit"
+           };
+           transactions.Add(twentyFiveDollarCheckingDeposit);
+
+
+
 
             while (keepGoing)
             {
