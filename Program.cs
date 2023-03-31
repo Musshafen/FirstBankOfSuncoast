@@ -90,6 +90,17 @@ namespace FirstBankOfSuncoast
                 else
                 if (menuOption == "S")
                 {
+
+                  foreach (var transaction in transactions)
+                  {
+                    var descriptionOfTransaction = transaction.Description();
+
+                    Console.WriteLine(descriptionOfTransaction);
+
+                  }
+
+
+
                 }
                 else
                 if (menuOption == "B")
