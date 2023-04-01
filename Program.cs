@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FirstBankOfSuncoast
 {
@@ -91,13 +92,13 @@ namespace FirstBankOfSuncoast
                 if (menuOption == "S")
                 {
 
-                  foreach (var transaction in transactions)
-                  {
-                    var descriptionOfTransaction = transaction.Description();
+                    foreach (var transaction in transactions)
+                    {
+                        var descriptionOfTransaction = transaction.Description();
 
-                    Console.WriteLine(descriptionOfTransaction);
+                        Console.WriteLine(descriptionOfTransaction);
 
-                  }
+                    }
 
 
 
@@ -105,6 +106,11 @@ namespace FirstBankOfSuncoast
                 else
                 if (menuOption == "B")
                 {
+
+
+                    var totalCheckingDeposits = transactions.Where(transaction => transaction.Account == "Checking" && transaction.Type == "Deposit").Sum(transaction => transaction.Amount);
+                    Console.WriteLine(totalCheckingDeposits);
+
                 }
                 else
                 if (menuOption == "Q")
