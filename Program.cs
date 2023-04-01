@@ -92,7 +92,7 @@ namespace FirstBankOfSuncoast
                     if (userInput == "C")
                     {
                         Console.WriteLine();
-                        transaction.Amount = PromptForInteger("How much would you like to withdraw from your checking? ");
+                        transaction.Amount = PromptForInteger("How much would you like to withdraw from your checking? $");
                         var accountTotal = transactions.Where(transaction => transaction.Type == "Checking").Sum(transaction => transaction.Amount);
                         if (transaction.Amount > accountTotal)
                         {
@@ -114,7 +114,7 @@ namespace FirstBankOfSuncoast
                     if (userInput == "S")
                     {
                         Console.WriteLine();
-                        transaction.Amount = PromptForInteger("How much would you like to withdraw from your savings? ");
+                        transaction.Amount = PromptForInteger("How much would you like to withdraw from your savings? $");
                         var accountTotal = transactions.Where(transaction => transaction.Type == "Savings").Sum(transaction => transaction.Amount);
                         if (transaction.Amount > accountTotal)
                         {
@@ -139,6 +139,35 @@ namespace FirstBankOfSuncoast
                 else
                 if (menuOption == "D")
                 {
+                    var transaction = new Transaction();
+                    Console.WriteLine();
+                    Console.WriteLine("Which account would you like to deposit to:");
+                    Console.WriteLine("[C]ecking");
+                    Console.WriteLine("[S]avings");
+                    var userInput = Console.ReadLine().ToUpper();
+                    if (userInput == "C")
+                    {
+                        transaction.Account = "Checking";
+                        Console.WriteLine();
+                        transaction.Amount = PromptForInteger("How much would you like to deposit to your checking? $");
+                        transaction.Type = "Deposit";
+                        transactions.Add(transaction);
+                    }
+                    else
+                    if (userInput == "S")
+                    {
+                        transaction.Account = "Savings";
+                        Console.WriteLine();
+                        transaction.Amount = PromptForInteger("How much would you like to deposit to your savings? $");
+                        transaction.Type = "Deposit";
+                        transactions.Add(transaction);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Selection");
+                    }
+
+
                 }
                 else
                 if (menuOption == "S")
