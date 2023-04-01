@@ -83,6 +83,13 @@ namespace FirstBankOfSuncoast
 
                 if (menuOption == "W")
                 {
+                    var transaction = new Transaction();
+                    Console.WriteLine("\nWhich account would you like to withdraw from:");
+                    Console.WriteLine("[C]ecking");
+                    Console.WriteLine("[S]avings");
+                    var userInput = Console.ReadLine().ToUpper();
+
+
                 }
                 else
                 if (menuOption == "D")
