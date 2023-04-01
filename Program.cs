@@ -86,7 +86,7 @@ namespace FirstBankOfSuncoast
                         Console.WriteLine();
                         transaction.Amount = PromptForInteger("How much would you like to withdraw from your checking? $");
                         var accountTotal = transactions.Where(transaction => transaction.Type == "Checking").Sum(transaction => transaction.Amount);
-                        if (transaction.Amount > accountTotal)
+                        if (transaction.Amount < accountTotal)
                         {
                             Console.WriteLine("Insufficient Funds");
                             Console.WriteLine();
@@ -108,7 +108,7 @@ namespace FirstBankOfSuncoast
                         Console.WriteLine();
                         transaction.Amount = PromptForInteger("How much would you like to withdraw from your savings? $");
                         var accountTotal = transactions.Where(transaction => transaction.Type == "Savings").Sum(transaction => transaction.Amount);
-                        if (transaction.Amount > accountTotal)
+                        if (transaction.Amount < accountTotal)
                         {
                             Console.WriteLine("Insufficient Funds");
                             Console.WriteLine();
