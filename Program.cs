@@ -78,7 +78,7 @@ namespace FirstBankOfSuncoast
                     var transaction = new Transaction();
                     Console.WriteLine();
                     Console.WriteLine("Which account would you like to withdraw from:");
-                    Console.WriteLine("[C]ecking");
+                    Console.WriteLine("[C]hecking");
                     Console.WriteLine("[S]avings");
                     var userInput = Console.ReadLine().ToUpper();
                     if (userInput == "C")
@@ -134,7 +134,7 @@ namespace FirstBankOfSuncoast
                     var transaction = new Transaction();
                     Console.WriteLine();
                     Console.WriteLine("Which account would you like to deposit to:");
-                    Console.WriteLine("[C]ecking");
+                    Console.WriteLine("[C]hecking");
                     Console.WriteLine("[S]avings");
                     var userInput = Console.ReadLine().ToUpper();
                     if (userInput == "C")
