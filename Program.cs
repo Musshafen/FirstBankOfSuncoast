@@ -109,9 +109,24 @@ namespace FirstBankOfSuncoast
 
 
                     var totalCheckingDeposits = transactions.Where(transaction => transaction.Account == "Checking" && transaction.Type == "Deposit").Sum(transaction => transaction.Amount);
-                    Console.WriteLine(totalCheckingDeposits);
 
+                    var totalCheckingWithdraw = transactions.Where(transaction => transaction.Account == "Checking" && transaction.Type == "Withdraw").Sum(transaction => transaction.Amount);
+
+                    var totalChecking = totalCheckingDeposits - totalCheckingWithdraw;
+
+
+
+
+                    var totalSavingsDeposits = transactions.Where(transaction => transaction.Account == "Savings" && transaction.Type == "Deposit").Sum(transaction => transaction.Amount);
+
+                    var totalSavingsWithdraw = transactions.Where(transaction => transaction.Account == "Savings" && transaction.Type == "Withdraw").Sum(transaction => transaction.Amount);
+
+                    var totalSavings = totalSavingsDeposits - totalSavingsWithdraw;
+
+                    Console.WriteLine($"Your checking account has ${totalChecking} and your savings has ${totalSavings}");
                 }
+
+
                 else
                 if (menuOption == "Q")
                 {
