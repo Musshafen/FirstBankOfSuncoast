@@ -42,28 +42,34 @@ namespace FirstBankOfSuncoast
         {
             var keepGoing = true;
 
-            var transactions = new List<Transaction>()
-            {
-                new Transaction()
-                {
-                    Amount = 10,
-                    Account = "Savings",
-                    Type = "Deposit"
-                },
-              new Transaction()
-              {
-                  Amount = 8,
-                  Account = "Savings",
-                  Type = "Withdraw"
-              },
-              new Transaction()
-              {
-                  Amount = 25,
-                  Account = "Checking",
-                  Type = "Deposit"
-              }
+            var transactions = new List<Transaction>();
 
-            };
+        
+
+
+
+
+          //  {
+              //  new Transaction()
+             //   {
+              //      Amount = 10,
+              //      Account = "Savings",
+               //     Type = "Deposit"
+            //    },
+             // new Transaction()
+             // {
+            //      Amount = 8,
+           //       Account = "Savings",
+           //       Type = "Withdraw"
+          //    },
+          //    new Transaction()
+           //   {
+           //       Amount = 25,
+          //        Account = "Checking",
+           //       Type = "Deposit"
+          //    }
+
+          //  };
 
 
 
