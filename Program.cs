@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using CsvHelper;
 
 namespace FirstBankOfSuncoast
 {
@@ -44,32 +47,32 @@ namespace FirstBankOfSuncoast
 
             var transactions = new List<Transaction>();
 
-        
 
 
 
 
-          //  {
-              //  new Transaction()
-             //   {
-              //      Amount = 10,
-              //      Account = "Savings",
-               //     Type = "Deposit"
+
+            //  {
+            //  new Transaction()
+            //   {
+            //      Amount = 10,
+            //      Account = "Savings",
+            //     Type = "Deposit"
             //    },
-             // new Transaction()
-             // {
+            // new Transaction()
+            // {
             //      Amount = 8,
-           //       Account = "Savings",
-           //       Type = "Withdraw"
-          //    },
-          //    new Transaction()
-           //   {
-           //       Amount = 25,
-          //        Account = "Checking",
-           //       Type = "Deposit"
-          //    }
+            //       Account = "Savings",
+            //       Type = "Withdraw"
+            //    },
+            //    new Transaction()
+            //   {
+            //       Amount = 25,
+            //        Account = "Checking",
+            //       Type = "Deposit"
+            //    }
 
-          //  };
+            //  };
 
 
 
@@ -223,6 +226,18 @@ namespace FirstBankOfSuncoast
                 {
                     Console.WriteLine("Unknown menu option");
                 }
+                // Create a stream for writing information into a file
+                var fileWriter = new StreamWriter("transactions.csv");
+                // Create an object that can write CSV to the fileWriter
+                var csvWriter = new CsvWriter(fileWriter, CultureInfo.InvariantCulture);
+                // Ask our csvWriter to write out our list of numbers
+                csvWriter.WriteRecords(transactions);
+                // Tell the file we are done
+                fileWriter.Close();
+
+
+
+
             }
         }
     }
