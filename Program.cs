@@ -43,20 +43,22 @@ namespace FirstBankOfSuncoast
 
         static void Main(string[] args)
         {
-            var keepGoing = true;
+
 
             var transactions = new List<Transaction>();
 
-            var fileReader = new StreamReader("transactions.csv");
-            var csvReader = new CsvReader(fileReader, CultureInfo.InvariantCulture);
-            transactions = csvReader.GetRecords<Transaction>().ToList();
-            fileReader.Close();
+            if (File.Exists("transactions.csv"))
+            {
+                var fileReader = new StreamReader("transactions.csv");
+                var csvReader = new CsvReader(fileReader, CultureInfo.InvariantCulture);
+                transactions = csvReader.GetRecords<Transaction>().ToList();
+                fileReader.Close();
+            }
 
 
 
 
-
-
+            var keepGoing = true;
             while (keepGoing)
             {
                 Console.WriteLine();
