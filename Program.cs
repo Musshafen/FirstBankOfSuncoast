@@ -47,32 +47,13 @@ namespace FirstBankOfSuncoast
 
             var transactions = new List<Transaction>();
 
+            var fileReader = new StreamReader("transactions.csv");
+            var csvReader = new CsvReader(fileReader, CultureInfo.InvariantCulture);
+            transactions = csvReader.GetRecords<Transaction>().ToList();
+            fileReader.Close();
 
 
 
-
-
-            //  {
-            //  new Transaction()
-            //   {
-            //      Amount = 10,
-            //      Account = "Savings",
-            //     Type = "Deposit"
-            //    },
-            // new Transaction()
-            // {
-            //      Amount = 8,
-            //       Account = "Savings",
-            //       Type = "Withdraw"
-            //    },
-            //    new Transaction()
-            //   {
-            //       Amount = 25,
-            //        Account = "Checking",
-            //       Type = "Deposit"
-            //    }
-
-            //  };
 
 
 
