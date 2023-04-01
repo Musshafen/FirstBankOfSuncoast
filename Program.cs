@@ -84,11 +84,56 @@ namespace FirstBankOfSuncoast
                 if (menuOption == "W")
                 {
                     var transaction = new Transaction();
-                    Console.WriteLine("\nWhich account would you like to withdraw from:");
+                    Console.WriteLine();
+                    Console.WriteLine("Which account would you like to withdraw from:");
                     Console.WriteLine("[C]ecking");
                     Console.WriteLine("[S]avings");
                     var userInput = Console.ReadLine().ToUpper();
+                    if (userInput == "C")
+                    {
+                        Console.WriteLine();
+                        transaction.Amount = PromptForInteger("How much would you like to withdraw from your checking? ");
+                        var accountTotal = transactions.Where(transaction => transaction.Type == "Checking").Sum(transaction => transaction.Amount);
+                        if (transaction.Amount > accountTotal)
+                        {
+                            Console.WriteLine("Insufficient Funds");
+                            Console.WriteLine();
 
+                        }
+                        else
+                        {
+                            transaction.Account = "Checking";
+                            transaction.Type = "Withdraw";
+                            transactions.Add(transaction);
+
+                        }
+
+
+                    }
+                    else
+                    if (userInput == "S")
+                    {
+                        Console.WriteLine();
+                        transaction.Amount = PromptForInteger("How much would you like to withdraw from your savings? ");
+                        var accountTotal = transactions.Where(transaction => transaction.Type == "Savings").Sum(transaction => transaction.Amount);
+                        if (transaction.Amount > accountTotal)
+                        {
+                            Console.WriteLine("Insufficient Funds");
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            transaction.Account = "Savings";
+                            transaction.Type = "Withdraw";
+                            transactions.Add(transaction);
+
+
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid selection");
+                    }
 
                 }
                 else
